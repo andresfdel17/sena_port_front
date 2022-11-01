@@ -1,24 +1,32 @@
 
+import { IAuthProvider, Login, Props } from '@interfaces';
+import { TokenManager } from '@lib';
 import React, { useState, createContext, useEffect, useContext } from 'react';
-import { Props } from '../interfaces/General';
-
-
-const AuthContext = createContext(null);
+const AuthContext = createContext<IAuthProvider | null>(null);
 const { Provider } = AuthContext;
 export function AuthProvider({ children }: Props) {
     const savedToken = localStorage.getItem("token");
-    const savedExpiration = localStorage.getItem("expiresAt");
-    const savedUser = "";
+    const savedExpiration = (): number => {
+        let date = localStorage.getItem("expiresAt") || "";
+        return new Date(date).getTime() / 1000;
+    };
+    const savedUser = (token: string | null): any => {
+        if (token) {
+            const { user } = TokenManager.decodeToken(token);
+            return user;
+        }
+        return "";
+    };
     const [token, setToken] = useState(savedToken);
-    const [user, setUser] = useState(savedUser);
-    const [expiration, setExpiration] = useState(savedExpiration);
+    const [user, setUser] = useState(savedUser(token));
+    const [expiration, setExpiration] = useState<number | null>(savedExpiration());
     useEffect(() => {
         setInterval(() => {
             validateToken();
         }, 1000);
         // eslint-disable-next-line
     }, []);
-    const validateToken = () => {
+    const validateToken = (): void => {
         if (localStorage.getItem("token") === null) {
             LogOut();
         }
@@ -32,40 +40,32 @@ export function AuthProvider({ children }: Props) {
         }
         return true;
     }
-    const Login = (data) => {
+    const Login = (data: Login) => {
         localStorage.setItem("token", data.token);
-        localStorage.setItem("savedData", window.btoa(JSON.stringify(data.user)));
         let exp = new Date(data.expiresAt * 1000);
-        localStorage.setItem("expiresAt", exp.toISOString())
+        localStorage.setItem("expiresAt", exp.toISOString());
+        setUser(savedUser(data.token));
         setToken(data.token);
-        setUser(data.user);
         setExpiration(data.expiresAt);
     }
-    const LogOut = () => {
+    const LogOut = (): void => {
         localStorage.removeItem("token");
-        localStorage.removeItem("savedData");
         localStorage.removeItem("expiresAt");
         setToken(null);
-        setUser({});
-        setExpiration("");
+        setExpiration(null);
     }
-    const credentials = {
-        token,
-        user,
-        validateToken,
-        isAutenticated,
-        Login,
-        LogOut
-    };
     //let value = { user, signin, signout };
     return (
-        <Provider value={
-            credentials
-        }>
-            {children}
-        </Provider>
+        <Provider value={{
+            token,
+            user,
+            validateToken,
+            isAutenticated,
+            Login,
+            LogOut
+        }}></Provider>
     );
 }
-export default function useAuth() {
+export function useAuth() {
     return useContext(AuthContext);
 }
