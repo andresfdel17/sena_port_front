@@ -1,3 +1,5 @@
 {
-    "hello":"Hello"
+    "dic-index":"English",
+    "login": "Login",
+    "login-user-name":"User email"
 }

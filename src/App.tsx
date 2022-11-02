@@ -5,11 +5,13 @@ import AppRouter from './router/AppRouter';
 
 function App() {
   return (
-    <ThemeProvider>
-      <LangProvider>
-        <AppRouter />
-      </LangProvider>
-    </ThemeProvider>
+    <div style={{ height: "100%" }}>
+      <ThemeProvider>
+        <LangProvider>
+          <AppRouter />
+        </LangProvider>
+      </ThemeProvider>
+    </div>
   );
 }
 

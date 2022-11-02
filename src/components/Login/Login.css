@@ -1,5 +1,13 @@
+@import "../../assets/css/mainColors.css";
 
-
+html,
+body{
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  font-family: "Nunito", sans-serif;
+  overflow-x: hidden;
+}
 input::placeholder, input{
 	background-color: var(--body-bg) !important;
 	color: var(--text2-color) !important;
