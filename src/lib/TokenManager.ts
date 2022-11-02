@@ -1,4 +1,4 @@
-import { ITokenManager } from "@interfaces";
+import { ITokenManager } from "@interfaces/lib";
 import jwtDecode from "jwt-decode";
 
 export class TokenManager implements ITokenManager {

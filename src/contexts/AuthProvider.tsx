@@ -1,6 +1,6 @@
-
-import { IAuthProvider, Login, Props } from '@interfaces';
-import { TokenManager } from '@lib';
+import { IAuthProvider, Login } from '@interfaces/Context';
+import { Props } from '@interfaces/General';
+import { TokenManager } from '@lib/TokenManager';
 import React, { useState, createContext, useEffect, useContext } from 'react';
 const AuthContext = createContext<IAuthProvider | null>(null);
 const { Provider } = AuthContext;

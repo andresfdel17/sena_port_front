@@ -1,5 +1,6 @@
+import { LangProvider } from '@contexts/LanguageContext';
+import { ThemeProvider } from '@contexts/ThemeContext';
 import React from 'react';
-import { LangProvider, ThemeProvider } from '@contexts';
 import AppRouter from './router/AppRouter';
 
 function App() {

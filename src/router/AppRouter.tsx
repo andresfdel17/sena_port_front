@@ -1,7 +1,8 @@
+import { Login } from '@components/Login';
+import { useAuth } from '@contexts/AuthProvider';
 import React from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
-import { Login } from "@components";
-import { useAuth } from '@contexts';
+
 
 
 const AppRouter = () => {
