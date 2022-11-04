@@ -1,5 +1,12 @@
 {
     "dic-index":"Español",
     "login":"Iniciar sesión",
-    "login-user-name":"Correo de usuario"
+    "login-user-name":"Correo de usuario",
+    "login-ser-place":"Escriba su email",
+    "auth-code":"Código de autentificación",
+    "login-password":"Contraseña",
+    "login-pass-place":"Escribas su contraseña",
+    "forgot-password":"Olvidó su contraseña ?",
+    "to-register":"Rregistrarse",
+    "log-in":"Iniciar sesión"
 }
