@@ -8,5 +8,11 @@
     "login-pass-place":"Type your password",
     "forgot-password":"Forgot password ?",
     "to-register":"Register",
-    "log-in":"Log in"
+    "log-in":"Log in",
+    "user-unk":"Unknown user",
+    "success": "Success",
+    "warning": "Warning",
+    "incorrect-pass": "Incorrect password",
+    "logged-in":"Logged in",
+    "server-error": "Server error"
 }

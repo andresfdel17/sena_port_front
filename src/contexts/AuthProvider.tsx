@@ -5,19 +5,19 @@ import React, { useState, createContext, useEffect, useContext } from 'react';
 const AuthContext = createContext<IAuthProvider>({} as IAuthProvider);
 const { Provider } = AuthContext;
 export function AuthProvider({ children }: Props) {
-    const savedToken = localStorage.getItem("token");
+    const savedToken = () => localStorage.getItem("token");
     const savedExpiration = (): number => {
         let date = localStorage.getItem("expiresAt") || "";
         return new Date(date).getTime() / 1000;
     };
     const savedUser = (token: string | null): any => {
         if (token) {
-            const { user } = TokenManager.decodeToken(token);
+            const { data: user } = TokenManager.decodeToken(token);
             return user;
         }
         return "";
     };
-    const [token, setToken] = useState(savedToken);
+    const [token, setToken] = useState(savedToken());
     const [user, setUser] = useState(savedUser(token));
     const [expiration, setExpiration] = useState<number | null>(savedExpiration());
     useEffect(() => {
@@ -45,6 +45,8 @@ export function AuthProvider({ children }: Props) {
         let exp = new Date(data.expiresAt * 1000);
         localStorage.setItem("expiresAt", exp.toISOString());
         setUser(savedUser(data.token));
+        console.log(user);
+        
         setToken(data.token);
         setExpiration(data.expiresAt);
     }

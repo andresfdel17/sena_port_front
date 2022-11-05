@@ -13,7 +13,7 @@ import { RegisterModal } from './RegisterModal';
 
 export const LoginForm = () => {
   const { t } = useTranslation();
-  const { isAutenticated } = useAuth();
+  const { isAutenticated, Login } = useAuth();
   const { serialize } = useForm();
   const { notify } = useNotify();
   const navigate = useNavigate();
@@ -30,11 +30,10 @@ export const LoginForm = () => {
     setloading(true);
     const formData = serialize(e.target as HTMLFormElement);
     const { data } = await publicFetch.post("/api/login/login", formData);
-    console.log(data);
     setloading(false);
     notify({
       ...data,
-      callback: () => {}
+      callback: () => { Login(data) }
     });
   }
   return loading ? (

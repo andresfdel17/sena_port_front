@@ -8,5 +8,11 @@
     "login-pass-place":"Escribas su contraseña",
     "forgot-password":"Olvidó su contraseña ?",
     "to-register":"Rregistrarse",
-    "log-in":"Iniciar sesión"
+    "log-in":"Iniciar sesión",
+    "user-unk":"Usuario desconocido",
+    "success": "Éxito",
+    "warning": "Advertencia",
+    "incorrect-pass": "Contraseña incorrecta",
+    "logged-in":"Sesión iniciada",
+    "server-error": "Error de servidor"
 }
