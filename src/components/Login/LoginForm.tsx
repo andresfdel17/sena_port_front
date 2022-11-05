@@ -3,6 +3,7 @@ import { useAuth } from '@contexts/AuthProvider';
 import { faCode, faKey, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useForm } from '@hooks/useForm';
+import { useNotify } from '@hooks/useNotify';
 import { publicFetch } from '@services/Axios';
 import React, { FormEvent, useEffect, useState } from 'react'
 import { Button, Col, Row } from 'react-bootstrap';
@@ -14,6 +15,7 @@ export const LoginForm = () => {
   const { t } = useTranslation();
   const { isAutenticated } = useAuth();
   const { serialize } = useForm();
+  const { notify } = useNotify();
   const navigate = useNavigate();
   const [loading, setloading] = useState<boolean>(false);
   const [registerModal, setShowRModal] = useState<boolean>(false);
@@ -30,6 +32,10 @@ export const LoginForm = () => {
     const { data } = await publicFetch.post("/api/login/login", formData);
     console.log(data);
     setloading(false);
+    notify({
+      ...data,
+      callback: () => {}
+    });
   }
   return loading ? (
     <Loader />
