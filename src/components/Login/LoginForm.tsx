@@ -1,19 +1,35 @@
 import { Loader } from '@components/Loader/Loader';
+import { useAuth } from '@contexts/AuthProvider';
 import { faCode, faKey, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { FormEvent, useState } from 'react'
+import { useForm } from '@hooks/useForm';
+import { publicFetch } from '@services/Axios';
+import React, { FormEvent, useEffect, useState } from 'react'
 import { Button, Col, Row } from 'react-bootstrap';
 import { Trans, useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { RegisterModal } from './RegisterModal';
 
 export const LoginForm = () => {
   const { t } = useTranslation();
+  const { isAutenticated } = useAuth();
+  const { serialize } = useForm();
+  const navigate = useNavigate();
   const [loading, setloading] = useState<boolean>(false);
   const [registerModal, setShowRModal] = useState<boolean>(false);
+  useEffect(() => {
+    if (isAutenticated()) {
+      navigate("/home");
+    }
+    // eslint-disable-next-line
+  }, []);
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setloading(true);
+    const formData = serialize(e.target as HTMLFormElement);
+    const { data } = await publicFetch.post("/api/login/login", formData);
+    console.log(data);
+    setloading(false);
   }
   return loading ? (
     <Loader />
@@ -56,9 +72,9 @@ export const LoginForm = () => {
       </Row>
       <Row className="justify-content-around">
         <Col sm="auto" className="mb-2">
-            <Button variant="primary" size="sm" type="button" onClick={() => setShowRModal(true)}>
-              <Trans t={t}>to-register</Trans>
-            </Button>
+          <Button variant="primary" size="sm" type="button" onClick={() => setShowRModal(true)}>
+            <Trans t={t}>to-register</Trans>
+          </Button>
         </Col>
         <Col sm="auto">
           <Button variant="primary" size="sm" type="submit">

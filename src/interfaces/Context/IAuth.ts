@@ -6,8 +6,8 @@ export interface Login {
 export interface IAuthProvider {
   token: string | null;
   user: string;
-  validateToken: () => void;
-  isAutenticated: () => boolean;
-  Login: (data: Login) => void;
-  LogOut: () => void;
+  validateToken(): void;
+  isAutenticated(): boolean;
+  Login(data: Login): void;
+  LogOut(): void;
 }

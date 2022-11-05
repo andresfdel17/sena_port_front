@@ -16,6 +16,12 @@
             ],
             "@assets/*": [
                 "assets/*"
+            ],
+            "@services/*": [
+                "services/*"
+            ],
+            "@hooks/*": [
+                "hooks/*"
             ]
         }
     }

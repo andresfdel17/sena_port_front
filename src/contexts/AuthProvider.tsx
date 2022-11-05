@@ -2,7 +2,7 @@ import { IAuthProvider, Login } from '@interfaces/Context';
 import { Props } from '@interfaces/General';
 import { TokenManager } from '@lib/TokenManager';
 import React, { useState, createContext, useEffect, useContext } from 'react';
-const AuthContext = createContext<IAuthProvider | null>(null);
+const AuthContext = createContext<IAuthProvider>({} as IAuthProvider);
 const { Provider } = AuthContext;
 export function AuthProvider({ children }: Props) {
     const savedToken = localStorage.getItem("token");
@@ -31,7 +31,7 @@ export function AuthProvider({ children }: Props) {
             LogOut();
         }
     }
-    const isAutenticated = () => {
+    const isAutenticated = (): boolean => {
         if (!token || !expiration) {
             return false;
         }
@@ -63,7 +63,9 @@ export function AuthProvider({ children }: Props) {
             isAutenticated,
             Login,
             LogOut
-        }}></Provider>
+        }}>
+            {children}
+        </Provider>
     );
 }
 export function useAuth() {

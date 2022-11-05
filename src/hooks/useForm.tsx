@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const useForm = () => {
     const serialize = (form: HTMLFormElement) => {
         const data = new FormData(form);
