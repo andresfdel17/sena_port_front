@@ -45,8 +45,6 @@ export function AuthProvider({ children }: Props) {
         let exp = new Date(data.expiresAt * 1000);
         localStorage.setItem("expiresAt", exp.toISOString());
         setUser(savedUser(data.token));
-        console.log(user);
-        
         setToken(data.token);
         setExpiration(data.expiresAt);
     }
