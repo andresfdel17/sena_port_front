@@ -25,7 +25,7 @@ export const LoginForm = () => {
     const { data } = await publicFetch.post("/api/login/login", formData);
     notify({
       ...data,
-      callback: () => { Login(data) }
+      callback: () => { if (data.code === 200) Login(data) }
     });
     setloading(false);
   }

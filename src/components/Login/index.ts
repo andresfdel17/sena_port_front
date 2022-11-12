@@ -1,4 +1,4 @@
 export * from "./Login";
 export * from "./LoginImg";
 export * from "./LoginForm";
-export * from "./ResgisterForm";
+export * from "./RegisterForm";

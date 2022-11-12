@@ -38,8 +38,8 @@
 	--body-bg:#354056 !important;
 	--sidebar-width: 250px;
 	--text-color: #ffffff;
-	--text2-color: #ffffff;
-	--text3-color: #2a2b3d;
+	--text2-color: #2a2b3d;
+	--text3-color: #ffffff;
 	--text-hover: #b0b1bf;
 	--card-bg: var(--body-bg);
 }

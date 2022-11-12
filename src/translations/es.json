@@ -14,5 +14,8 @@
     "warning": "Advertencia",
     "incorrect-pass": "Contraseña incorrecta",
     "logged-in":"Sesión iniciada",
-    "server-error": "Error de servidor"
+    "server-error": "Error de servidor",
+    "register-form":"Formulario de registro",
+    "close":"Cerrar",
+    "save":"Guardar"
 }

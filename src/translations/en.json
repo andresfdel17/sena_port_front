@@ -14,5 +14,8 @@
     "warning": "Warning",
     "incorrect-pass": "Incorrect password",
     "logged-in":"Logged in",
-    "server-error": "Server error"
+    "server-error": "Server error",
+    "register-form":"Register form",
+    "close":"Close",
+    "save":"Save"
 }
