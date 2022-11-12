@@ -5,36 +5,29 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useForm } from '@hooks/useForm';
 import { useNotify } from '@hooks/useNotify';
 import { publicFetch } from '@services/Axios';
-import React, { FormEvent, useEffect, useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 import { Button, Col, Row } from 'react-bootstrap';
 import { Trans, useTranslation } from 'react-i18next'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { RegisterModal } from './RegisterModal';
 
 export const LoginForm = () => {
   const { t } = useTranslation();
-  const { isAutenticated, Login } = useAuth();
+  const { Login } = useAuth();
   const { serialize } = useForm();
   const { notify } = useNotify();
-  const navigate = useNavigate();
   const [loading, setloading] = useState<boolean>(false);
   const [registerModal, setShowRModal] = useState<boolean>(false);
-  useEffect(() => {
-    if (isAutenticated()) {
-      navigate("/home");
-    }
-    // eslint-disable-next-line
-  }, []);
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setloading(true);
     const formData = serialize(e.target as HTMLFormElement);
     const { data } = await publicFetch.post("/api/login/login", formData);
-    setloading(false);
     notify({
       ...data,
       callback: () => { Login(data) }
     });
+    setloading(false);
   }
   return loading ? (
     <Loader />

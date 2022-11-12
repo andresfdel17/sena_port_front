@@ -1,7 +1,9 @@
 
+import { useAuth } from '@contexts/AuthProvider';
 import React, { useEffect } from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
 import { useTranslation, Trans } from 'react-i18next';
+import { Navigate } from 'react-router-dom';
 import "./Login.css";
 import { LoginForm } from './LoginForm';
 import { LoginImg } from './LoginImg';
@@ -9,6 +11,7 @@ import { Logo } from './Logo';
 
 export const Login = () => {
   const { t, i18n } = useTranslation();
+  const { isAutenticated } = useAuth();
   const changeLang = (event: any): void => {
     i18n.changeLanguage(event.target.value);
   }
@@ -16,7 +19,7 @@ export const Login = () => {
     document.title = t("login");
     // eslint-disable-next-line
   }, []);
-  return (
+  return !isAutenticated() ? (
     <>
       <div className="collapse d-flex flex-column flex-md-row align-items-center p-3 px-md-4 purple shadow-sm">
         <h5 style={{ fontSize: "3rem" }} className=" mt-0 mb-0 text-light text-center mb-0 align-middle">
@@ -68,5 +71,7 @@ export const Login = () => {
         </Col>
       </Row>
     </>
+  ) : (
+    <Navigate to="/home" />
   )
 }
