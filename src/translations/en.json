@@ -17,5 +17,14 @@
     "server-error": "Server error",
     "register-form":"Register form",
     "close":"Close",
-    "save":"Save"
+    "save":"Save",
+    "names":"Names",
+    "last-name":"Last name",
+    "cifnif":"ID number",
+    "email":"Email",
+    "password":"Password",
+    "file":"File",
+    "code-send":"Code sended to email",
+    "code":"Code",
+    "code-not-send":"Code not send"
 }
