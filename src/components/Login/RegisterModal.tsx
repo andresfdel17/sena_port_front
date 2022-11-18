@@ -5,6 +5,7 @@ import { useNotify } from '@hooks/useNotify';
 import { useTrans } from '@hooks/useTrans';
 import { IRegisterModal } from '@interfaces/Login/IRegisterModal';
 import { publicFetch } from '@services/Axios';
+import i18next from 'i18next';
 import React, { FormEvent, useRef, useState } from 'react'
 import { Button, Col, FormControl, InputGroup, Modal, Row, Spinner } from 'react-bootstrap'
 export const RegisterModal = (props: IRegisterModal) => {
@@ -27,12 +28,12 @@ export const RegisterModal = (props: IRegisterModal) => {
         setLoading(true);
         const { current } = email;
         const { data } = await publicFetch.post("/api/login/send-code", {
-            email: current?.value
+            email: current?.value,
+            translates: i18next.getResourceBundle(i18next.language, "translation")
         });
         notify({
             ...data,
         });
-        console.log(data);
         setLoading(false);
     }
     return (
@@ -61,7 +62,6 @@ export const RegisterModal = (props: IRegisterModal) => {
                             <label>{translate("cifnif")}</label>
                             <FormControl size="sm" type="text" name="cifnif" />
                         </Col>
-
                     </Row>
                     <Row>
                         <Col sm>
