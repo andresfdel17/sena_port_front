@@ -1,3 +1,4 @@
 export interface ILogo {
-    width: string;
+    width?: string;
+    className?: string;
 }

@@ -5,7 +5,7 @@ import logo from "../../assets/img/sena.png";
 export const Logo = (props: ILogo) => {
   return (
     <>
-        <img width={props.width} src={logo} alt="logo" />
+        <img className={props.className ?? ''} width={props.width} src={logo} alt="logo" />
     </>
   )
 }
