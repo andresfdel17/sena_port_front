@@ -1,3 +1,4 @@
+import { BasePanel } from '@components/BasePanel';
 import { Home } from '@components/Home';
 import { Login } from '@components/Login';
 import { useAuth } from '@contexts/AuthProvider';
@@ -15,9 +16,9 @@ const AppRouter = () => {
         return <Navigate to="/login" />
       default:
         return (
-          <>
+          <BasePanel>
             {element}
-          </>
+          </BasePanel>
         );
     }
   }
