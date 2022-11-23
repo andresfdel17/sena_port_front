@@ -1,12 +1,12 @@
+import React, { useState } from 'react'
 import { Logo } from '@components/Login/Logo';
 import SimpleBar from 'simplebar-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ICollapsableNavItem, IHref, ILink, INavItem } from '@interfaces/BasePanel/SideBar/ISidebar';
 import { Accordion, Nav, Image, Badge, Navbar, Button } from '@themesberg/react-bootstrap';
-import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import { faSignOutAlt, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt, faTable, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 export const Sidebar = (props: any) => {
     const { pathname } = useLocation();
@@ -86,7 +86,12 @@ export const Sidebar = (props: any) => {
                             </Nav.Link>
                         </div>
                         <Nav className="flex-column pt-3 pt-md-0">
-                            <NavItem title="Volt React" link={Routes.Presentation.path} image={ReactHero} />
+                            <NavItem title="" link="/home" />
+                            <CollapsableNavItem eventKey="tables/" title="Tables" icon={faTable}>
+                                <NavItem title="Bootstrap Table" link="/tables" />
+                            </CollapsableNavItem>
+                            {
+                                /*<NavItem title="Volt React" link={Routes.Presentation.path} image={ReactHero} />
 
                             <NavItem title="Overview" link={Routes.DashboardOverview.path} icon={faChartPie} />
                             <NavItem external title="Messages" link="https://demo.themesberg.com/volt-pro-react/#/messages" target="_blank" badgeText="Pro" icon={faInbox} />
@@ -142,7 +147,7 @@ export const Sidebar = (props: any) => {
                                 <NavItem title="Tooltips" link={Routes.Tooltips.path} />
                             </CollapsableNavItem>
                             <NavItem external title="Themesberg" link="https://themesberg.com" target="_blank" image={ThemesbergLogo} />
-                            <Button as={Link} to={Routes.Upgrade.path} variant="secondary" className="upgrade-to-pro"><FontAwesomeIcon icon={faRocket} className="me-1" /> Upgrade to Pro</Button>
+                            */}
                         </Nav>
                     </div>
                 </SimpleBar>

@@ -9,13 +9,13 @@ export interface ICollapsableNavItem {
 }
 
 export interface INavItem  {
-    title: string;
+    title?: string;
     link?: any;
-    external: boolean;
-    target: any;
-    icon: IconProp;
-    image: any;
-    badgeText: string;
+    external?: boolean;
+    target?: any;
+    icon?: IconProp;
+    image?: any;
+    badgeText?: string;
     badgeBg?: string;
     badgeColor?: any;
 }

@@ -52,7 +52,7 @@ input::placeholder, input{
 }
 
 .collapse {
-  display: none !important;
+  display: none;
 }
 
 .shadow {
