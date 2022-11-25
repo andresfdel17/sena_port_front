@@ -9,7 +9,9 @@ import React, { FormEvent, useState } from 'react'
 import { Button, Col, Row } from 'react-bootstrap';
 import { Trans, useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom';
+import { Input } from './Loginstyles';
 import { RegisterModal } from './RegisterModal';
+import styles from "./Login.module.css";
 
 export const LoginForm = () => {
   const { t } = useTranslation();
@@ -50,7 +52,7 @@ export const LoginForm = () => {
                 <Trans t={t}>auth-code</Trans>
               </h6>
             </label>
-            <input name="code" type="text" className="form-control" />
+            <Input name="code" type="text" className="form-control" />
             <div className="invalid-feedback"></div>
           </div>
           <label htmlFor="password" className="mt-4">
@@ -59,7 +61,7 @@ export const LoginForm = () => {
               <Trans t={t}>login-password</Trans>
             </h6>
           </label>
-          <input name="password" required id="password" type="password" className="form-control" />
+          <Input name="password" required id="password" type="password" className="form-control" />
           <div className="invalid-feedback"><Trans t={t}>login-pass-place</Trans></div>
         </div >
         <Row className="mb-2">
@@ -71,12 +73,12 @@ export const LoginForm = () => {
         </Row>
         <Row className="justify-content-around">
           <Col sm="auto" className="mb-2">
-            <Button variant="primary" size="sm" type="button" onClick={() => setShowRModal(true)}>
+            <Button className={`${styles["btn-primary"]}`} variant="primary" size="sm" type="button" onClick={() => setShowRModal(true)}>
               <Trans t={t}>to-register</Trans>
             </Button>
           </Col>
           <Col sm="auto">
-            <Button variant="primary" size="sm" type="submit">
+            <Button className={`${styles["btn-primary"]}`} variant="primary" size="sm" type="submit">
               <Trans t={t}>log-in</Trans>
             </Button>
           </Col>

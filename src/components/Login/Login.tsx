@@ -4,10 +4,11 @@ import React, { useEffect } from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
 import { useTranslation, Trans } from 'react-i18next';
 import { Navigate } from 'react-router-dom';
-import "./Login.css";
 import { LoginForm } from './LoginForm';
 import { LoginImg } from './LoginImg';
 import { Logo } from './Logo';
+import styles from "./Login.module.css";
+import { GlobalStyle } from './Loginstyles';
 
 export const Login = () => {
   const { t, i18n } = useTranslation();
@@ -21,13 +22,14 @@ export const Login = () => {
   }, []);
   return !isAutenticated() ? (
     <>
-      <div className="collapse d-flex flex-column flex-md-row align-items-center p-3 px-md-4 purple shadow-sm">
+    <GlobalStyle />
+      <div className={`${styles.collapse} d-flex flex-column flex-md-row align-items-center p-3 px-md-4 purple shadow-sm`}>
         <h5 style={{ fontSize: "3rem" }} className=" mt-0 mb-0 text-light text-center mb-0 align-middle">
           <Logo width='100px' />
         </h5>
       </div>
       <Row className="h-100">
-        <Col className="purple left">
+        <Col className={`${styles.purple} ${styles.left}`}>
           <Row style={{ height: "100%" }}>
             <Col className='my-auto'>
               <h5 style={{ fontSize: "3rem" }} className="mt-0 mb-0 text-light text-center mb-0 align-middle">
@@ -36,18 +38,18 @@ export const Login = () => {
             </Col>
           </Row>
         </Col>
-        <Col md className="right">
+        <Col md className={`${styles.right} right`}>
           <div className="container h-100">
             <Row className="align-items-center h-100 justify-content-center">
               <Col sm="auto">
-                <Card className="shadow border-0 mx-auto">
-                  <Card.Header className='p-4'>
+                <Card className={`${styles.card} ${styles.shadow} border-0 mx-auto`}>
+                  <Card.Header className={`${styles.card_header}  p-4`}>
                     <h5 className='text-light text-center mb-0 align-middle'>
                       <Logo width='50px' />
                     </h5>
                   </Card.Header>
                   <Card.Body className="p-4">
-                    <h5 className="text-grey text-center mt-0 font-weight-bold">
+                    <h5 className={`${styles.text_grey} text-center mt-0 font-weight-bold`}>
                       <Trans t={t}>login-user-name</Trans>
                     </h5>
                     <p className="text-center text-muted"></p>
