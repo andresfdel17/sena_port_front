@@ -86,7 +86,7 @@ export const Sidebar = (props: any) => {
                             </Nav.Link>
                         </div>
                         <Nav className="flex-column pt-3 pt-md-0">
-                            <NavItem title="" link="/home" />
+                            <NavItem title="Home" link="/home" />
                             <CollapsableNavItem eventKey="tables/" title="Tables" icon={faTable}>
                                 <NavItem title="Bootstrap Table" link="/tables" />
                             </CollapsableNavItem>

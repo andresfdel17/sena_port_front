@@ -24,7 +24,6 @@
 
 	.nav-item {
 		border: $border-width solid transparent;
-		background-color: #2e3650;
 		&.active {
 			& > .nav-link {
 				color: $light;
@@ -35,9 +34,10 @@
 		.nav-link {
 			color: $light;
 			border: $border-width solid $dark;
+			background-color: #2e3650;
 			&:hover {
 				color: $light;
-				background-color: #2e3650;
+				background-color: #505a7b;
 			}
 			&.active {
 				color: $white;

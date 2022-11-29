@@ -4,6 +4,8 @@
 
  .accordion-button {
     text-align: left;
+    background-color: #2e3650;
+    border: $border-width solid transparent;
 
     .btn-check:focus + .btn, .btn:focus {
         outline: 0;
