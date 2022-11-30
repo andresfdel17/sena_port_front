@@ -26,5 +26,12 @@
   "file": "Ficha",
   "code-send": "Código enviado al correo electrónico",
   "code":"Código",
-  "code-not-send":"Código NO enviado"
+  "code-not-send":"Código NO enviado",
+  "register-device":"Registrar dispositivo",
+  "notifications":"Notificaciones",
+  "view-all":"Ver todo",
+  "search":"Buscar",
+  "profile":"Perfil",
+  "settings":"Ajustes",
+  "logout":"Cerrar sesión"
 }

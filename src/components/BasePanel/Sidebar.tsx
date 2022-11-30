@@ -6,13 +6,19 @@ import { ICollapsableNavItem, IHref, ILink, INavItem } from '@interfaces/BasePan
 import { Accordion, Nav, Image, Badge, Navbar, Button } from '@themesberg/react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import { faSignOutAlt, faTable, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { useTrans } from '@hooks/useTrans';
+import logo from "../../assets/img/sena.png";
+import { useAuth } from '@contexts/AuthProvider';
 
 export const Sidebar = (props: any) => {
+    const { t, translate } = useTrans();
+    const { user, LogOut } = useAuth();
     const { pathname } = useLocation();
     const [show, setShow] = useState<boolean>(false);
     const showClass: string = show ? "show" : "";
     const onCollapse = () => setShow(!show);
+    // eslint-disable-next-line
     const CollapsableNavItem = (props: ICollapsableNavItem) => {
         const { eventKey, title, icon, children = null } = props;
         const defaultKey = pathname.indexOf(eventKey) !== -1 ? eventKey : "";
@@ -75,9 +81,10 @@ export const Sidebar = (props: any) => {
                                     <Image src={""} className="card-img-top rounded-circle border-white" />
                                 </div>
                                 <div className="d-block">
-                                    <h6>Hi, Jane</h6>
-                                    <Button as={Link} variant="secondary" size="sm" to="/login" className="text-dark">
-                                        <FontAwesomeIcon icon={faSignOutAlt} className="me-2" /> Sign Out
+                                    <h6>{user?.name}</h6>
+                                    <Button variant="secondary" size="sm" onClick={LogOut} className="text-dark">
+                                        <FontAwesomeIcon icon={faSignOutAlt} className="me-2" />
+                                        {translate("logout")}
                                     </Button>
                                 </div>
                             </div>
@@ -86,10 +93,11 @@ export const Sidebar = (props: any) => {
                             </Nav.Link>
                         </div>
                         <Nav className="flex-column pt-3 pt-md-0">
-                            <NavItem title="Home" link="/home" />
-                            <CollapsableNavItem eventKey="tables/" title="Tables" icon={faTable}>
+                            <NavItem link="/home" image={logo} />
+                            <NavItem title={t("register-device")} link="/device-in" />
+                            {/*<CollapsableNavItem eventKey="registerDevice/" title={t("register-device")} icon={faTable}>
                                 <NavItem title="Bootstrap Table" link="/tables" />
-                            </CollapsableNavItem>
+                            </CollapsableNavItem>*/}
                             {
                                 /*<NavItem title="Volt React" link={Routes.Presentation.path} image={ReactHero} />
 

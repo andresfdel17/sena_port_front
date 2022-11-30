@@ -26,5 +26,12 @@
     "file":"File",
     "code-send":"Code sended to email",
     "code":"Code",
-    "code-not-send":"Code not send"
+    "code-not-send":"Code not send",
+    "register-device":"Register device",
+    "notifications":"Notifications",
+    "view-all":"View all",
+    "search":"Search",
+    "profile":"Profile",
+    "settings":"Settings",
+    "logout":"Log Out"
 }

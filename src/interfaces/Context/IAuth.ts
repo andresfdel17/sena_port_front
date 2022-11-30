@@ -5,9 +5,13 @@ export interface Login {
 
 export interface IAuthProvider {
   token: string | null;
-  user: string;
+  user: User;
   validateToken(): void;
   isAutenticated(): boolean;
   Login(data: Login): void;
   LogOut(): void;
+}
+
+export interface User {
+  [key: string] : any
 }

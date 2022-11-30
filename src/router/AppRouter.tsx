@@ -1,4 +1,5 @@
 import { BasePanel } from '@components/BasePanel';
+import { In } from '@components/Devices/In';
 import { Home } from '@components/Home';
 import { Login } from '@components/Login';
 import { useAuth } from '@contexts/AuthProvider';
@@ -29,6 +30,7 @@ const AppRouter = () => {
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Protected element={<Home />} />} />
+          <Route path="/device-in" element={<Protected element={<In />} />} />
         </Routes>
       </BrowserRouter>
     </>
