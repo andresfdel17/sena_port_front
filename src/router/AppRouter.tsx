@@ -1,9 +1,9 @@
 import { BasePanel } from '@components/BasePanel';
-import { In } from '@components/Devices/In';
 import { Home } from '@components/Home';
 import { Login } from '@components/Login';
 import { useAuth } from '@contexts/AuthProvider';
 import { PortectedProps } from '@interfaces/General';
+import { DeviceIn } from '../pages';
 import React from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
@@ -30,7 +30,7 @@ const AppRouter = () => {
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Protected element={<Home />} />} />
-          <Route path="/device-in" element={<Protected element={<In />} />} />
+          <Route path="/device-in" element={<Protected element={<DeviceIn />} />} />
         </Routes>
       </BrowserRouter>
     </>

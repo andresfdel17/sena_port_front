@@ -9,7 +9,7 @@
     "forgot-password":"Forgot password ?",
     "to-register":"Register",
     "log-in":"Log in",
-    "user-unk":"Unknown user",
+    "user-unk":"Incorrect username or password",
     "success": "Success",
     "warning": "Warning",
     "incorrect-pass": "Incorrect password",

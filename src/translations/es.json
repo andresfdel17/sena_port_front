@@ -9,7 +9,7 @@
   "forgot-password": "Olvidó su contraseña ?",
   "to-register": "Registrarse",
   "log-in": "Iniciar sesión",
-  "user-unk": "Usuario desconocido",
+  "user-unk": "Usuario o contraseña incorrecta",
   "success": "Éxito",
   "warning": "Advertencia",
   "incorrect-pass": "Contraseña incorrecta",
