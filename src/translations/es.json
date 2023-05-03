@@ -33,5 +33,7 @@
   "search":"Buscar",
   "profile":"Perfil",
   "settings":"Ajustes",
-  "logout":"Cerrar sesión"
+  "logout":"Cerrar sesión",
+  "new-device":"Nuevo dispositivo",
+  "devices":"Dispositivos"
 }

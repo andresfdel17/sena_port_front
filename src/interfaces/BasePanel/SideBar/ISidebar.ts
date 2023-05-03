@@ -8,13 +8,19 @@ export interface ICollapsableNavItem {
     children: ReactNode;
 }
 
+export interface ImageSidebar {
+    image: string;
+    width: number;
+    height: number;
+}
+
 export interface INavItem  {
     title?: string;
     link?: any;
     external?: boolean;
     target?: any;
     icon?: IconProp;
-    image?: any;
+    image?: ImageSidebar;
     badgeText?: string;
     badgeBg?: string;
     badgeColor?: any;

@@ -33,5 +33,7 @@
     "search":"Search",
     "profile":"Profile",
     "settings":"Settings",
-    "logout":"Log Out"
+    "logout":"Log Out",
+    "new-device":"New device",
+    "devices":"Devices"
 }

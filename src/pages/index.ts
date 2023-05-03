@@ -1,1 +1,2 @@
-export * from "./Devices/DeviceIn";
+export * from "./Devices";
+export * from "./Home"

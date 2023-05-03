@@ -6,7 +6,7 @@ import AppRouter from './router/AppRouter';
 
 function App() {
   return (
-    <div style={{ height: "100%" }}>
+    <>
       <AuthProvider>
         <ThemeProvider>
           <LangProvider>
@@ -14,7 +14,7 @@ function App() {
           </LangProvider>
         </ThemeProvider>
       </AuthProvider>
-    </div>
+    </>
   );
 }
 

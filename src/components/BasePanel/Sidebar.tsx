@@ -6,9 +6,9 @@ import { ICollapsableNavItem, IHref, ILink, INavItem } from '@interfaces/BasePan
 import { Accordion, Nav, Image, Badge, Navbar, Button } from '@themesberg/react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import { faSignOutAlt, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt, faTable, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useTrans } from '@hooks/useTrans';
-import logo from "../../assets/img/sena.png";
+import logo from "../../assets/img/logo.png";
 import { useAuth } from '@contexts/AuthProvider';
 
 export const Sidebar = (props: any) => {
@@ -52,7 +52,7 @@ export const Sidebar = (props: any) => {
                 <Nav.Link {...linkProps} target={target} className={classNames}>
                     <span>
                         {icon ? <span className="sidebar-icon"><FontAwesomeIcon icon={icon} /> </span> : null}
-                        {image ? <Image src={image} width={20} height={20} className="sidebar-icon svg-icon" /> : null}
+                        {image ? <Image src={image.image} width={image.width ?? 20} height={image.height ?? 20} className="sidebar-icon svg-icon" /> : null}
                         <span className="sidebar-text">{title}</span>
                     </span>
                     {badgeText ? (
@@ -93,11 +93,10 @@ export const Sidebar = (props: any) => {
                             </Nav.Link>
                         </div>
                         <Nav className="flex-column pt-3 pt-md-0">
-                            <NavItem link="/home" image={logo} />
-                            <NavItem title={t("register-device")} link="/device-in" />
-                            {/*<CollapsableNavItem eventKey="registerDevice/" title={t("register-device")} icon={faTable}>
-                                <NavItem title="Bootstrap Table" link="/tables" />
-                            </CollapsableNavItem>*/}
+                            <NavItem link="/home" image={{ image: logo, width: 200, height: 50 }} />
+                            <CollapsableNavItem eventKey="device" title={t("devices")} icon={faTable}>
+                                <NavItem title={t("register-device")} link="/device-in" />
+                            </CollapsableNavItem>
                             {
                                 /*<NavItem title="Volt React" link={Routes.Presentation.path} image={ReactHero} />
 

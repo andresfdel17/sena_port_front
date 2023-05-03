@@ -3,3 +3,4 @@ export * from "./Context";
 export * from "./lib";
 export * from "./Login";
 export * from "./BasePanel";
+export * from "./Assets";

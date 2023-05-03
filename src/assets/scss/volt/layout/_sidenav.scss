@@ -27,7 +27,7 @@
 		&.active {
 			& > .nav-link {
 				color: $light;
-				background-color: #2e3650;
+				background-color: $gray-700;
 				border: $border-width solid lighten( $dark, 20% );
 			}
 		}
@@ -37,7 +37,7 @@
 			background-color: #2e3650;
 			&:hover {
 				color: $light;
-				background-color: #505a7b;
+				background-color: $gray-800;
 			}
 			&.active {
 				color: $white;
@@ -80,15 +80,7 @@
 		}
 
 	}
-	.nav-link.active {
-		color: $primary;
-	}
-
-	.multi-level{
-		.nav-link{
-			padding-left: 45px;
-		}
-	}
+	
 
 	.sidebar-text,
 	.link-arrow,
@@ -173,7 +165,7 @@
 	.accordion-button{
 		&::after {
 			background-image: none;
-			content: '\f054';
+			content: "\f054";
 			font-family: $font-awesome-5;
 			font-size: $font-size-sm;
 			font-weight: 900;
@@ -191,6 +183,9 @@
 
 	.accordion {
 		padding-top: .25rem;
+		.accordion-item {
+			background-color: #4A5073 !important;
+		}
 	}
 
 	.accordion-body {

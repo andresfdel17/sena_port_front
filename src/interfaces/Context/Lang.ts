@@ -1,4 +1,4 @@
 export interface Lang {
-    translate: (word: string) => string;
     changeLanguage: (language: string) => void;
+    translateC: (word: string) => JSX.Element;
 }
