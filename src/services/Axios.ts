@@ -17,4 +17,10 @@ privateFetch.interceptors.request.use(
     error => {
         Promise.reject(error)
     });
+privateFetch.interceptors.response.use(
+    response => response,
+    async error => {
+        Promise.reject(error);
+    }
+);
 export { publicFetch, privateFetch };

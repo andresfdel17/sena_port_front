@@ -35,5 +35,6 @@
   "settings":"Ajustes",
   "logout":"Cerrar sesión",
   "new-device":"Nuevo dispositivo",
-  "devices":"Dispositivos"
+  "devices":"Dispositivos",
+  "brand": "Marca"
 }
