@@ -7,6 +7,7 @@ export const useNotify = () => {
     const { t } = useTranslation();
     const notify = (data: INotify): void => {
         switch (data.code) {
+            case 201:
             case 200:
                 Alert({
                     title: t("success"),

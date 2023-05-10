@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import { privateFetch } from '@services/Axios';
 import { AxiosResponse } from 'axios';
 import { useAxios } from '@contexts/AxiosContext';
+import { useNotify } from '@hooks/useNotify';
 
 export const DeviceIn = () => {
   const [image, setImage] = useState<string | undefined>(noImage);
@@ -17,6 +18,7 @@ export const DeviceIn = () => {
   const { translate, t } = useTrans();
   const { serialize } = useForm();
   const { privateFetch } = useAxios();
+  const { notify } = useNotify();
   useEffect(() => {
     document.title = t("new-device");
     // eslint-disable-next-line
@@ -36,16 +38,30 @@ export const DeviceIn = () => {
       ...formatedData,
       image: imageFile
     };
-    console.log(formData);
-    const { data }: AxiosResponse = await privateFetch.post("/api/devices/saveDevice", formData, { headers: {
-      "Content-Type": "multipart/form-data"
-    }});
-    console.log(data);
+    const { data }: AxiosResponse = await privateFetch.post("/api/devices/saveDevice", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
+    });
+    notify({
+      ...data,
+      callback: () => {
+        if (data.code === 201) {
+          (e.target as HTMLFormElement).reset();
+          resetStatus();
+        }
+      }
+    });
     setLoading(false);
+  }
+  const resetStatus = () => {
+    setImage(noImage);
+    setSerialValue("");
+    setImageFile(undefined);
   }
   return (
     <Container fluid className='mt-3'>
-      <form onSubmit={saveDevice}>
+      <form onSubmit={saveDevice} autoComplete='off'>
         <Card>
           <Card.Header>{translate("new-device")}</Card.Header>
           <Card.Body>
@@ -72,7 +88,7 @@ export const DeviceIn = () => {
             <Row>
               <Col sm>
                 <label>{translate("details")}</label>
-                <FormControl as="textarea" size="sm" type='text' name="details" required />
+                <FormControl as="textarea" size="sm" type='text' name="details" />
               </Col>
             </Row>
           </Card.Body>

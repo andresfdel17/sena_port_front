@@ -39,5 +39,7 @@
     "brand":"Brand",
     "color": "Color",
     "serial": "Serial",
-    "details": "Details"
+    "details": "Details",
+    "device-saved": "Device saved",
+    "existent-device": "Existent device"
 }
