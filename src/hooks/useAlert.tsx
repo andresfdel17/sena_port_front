@@ -15,7 +15,7 @@ export const useAlert = () => {
             title: title,
             text: text,
             icon: type,
-            timer: 4000,
+            timer: 1500,
             timerProgressBar: true,
             didClose: callback,
             showConfirmButton: false,

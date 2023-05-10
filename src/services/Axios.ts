@@ -11,6 +11,7 @@ privateFetch.interceptors.request.use(
         const token = localStorage.getItem("token");
         config.headers = {
             'Authorization': `Bearer ${token}`,
+            'Content-Type': "multipart/form-data"
         }
         return config;
     },
@@ -18,7 +19,10 @@ privateFetch.interceptors.request.use(
         Promise.reject(error)
     });
 privateFetch.interceptors.response.use(
-    response => response,
+    response => {
+        console.log(response);
+        return response;
+    },
     async error => {
         Promise.reject(error);
     }

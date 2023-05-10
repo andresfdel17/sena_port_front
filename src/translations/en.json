@@ -36,5 +36,8 @@
     "logout":"Log Out",
     "new-device":"New device",
     "devices":"Devices",
-    "brand":"Brand"
+    "brand":"Brand",
+    "color": "Color",
+    "serial": "Serial",
+    "details": "Details"
 }
